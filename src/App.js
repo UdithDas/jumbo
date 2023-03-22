@@ -1,21 +1,27 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Read from './components/Read';
-import Nread from './components/Nread';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Toolbar } from '@mui/material';
+import Addstudent from './components/Addstudent';
+import Navbar from './components/Navbar';
+import Teachers from './components/Teachers';
+
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Toolbar></Toolbar>
+      <Navbar></Navbar>
       <Routes>
-        <Route path="/sss" element={<teachers></teachers>}></Route>
-        <Route path="/amigos" element={<Read></Read>}></Route>
-        <Route path="/teachers" element={<Nread></Nread>}></Route>
+        <Route path='/' element={<Teachers></Teachers>}> </Route>
+        <Route path='/students' element={<Read></Read>}></Route>
+        <Route path='/addstudents' element={<Addstudent></Addstudent>}></Route>
+        <Route path='/teachers' element={<Teachers></Teachers>}></Route>
       </Routes>
       </BrowserRouter>
+      {/* <Addstudent/> */}
+      {/* <Teachers/> */}
+      {/* <Read/> */}
     </div>
   );
 }

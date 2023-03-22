@@ -1,10 +1,11 @@
-import { Typography, Paper, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow,Button } from '@mui/material'
+import { Typography, Paper, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { tableCellClasses } from '@mui/material/TableCell';
 import { blue, blueGrey } from '@mui/material/colors';
 import axios from 'axios';
 
-const Read = () => {
+
+const Teachers = () => {
     const color = blue[400];
     const color2 = blueGrey[900];
     const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -18,34 +19,24 @@ const Read = () => {
     }));
     var [students, setstud] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:3005/students")
+        axios.get("http://localhost:3005/teachers")
             .then(response => {
                 console.log(response.data)
                 setstud(students = response.data)
             })
             .catch(err => console.log(err))
     })
-    const deleteStudent=(id)=>{
-        console.log("delete clicked"+id);
-        axios.delete("http://localhost:3005/students/"+id)
-        .then(response=>{
-            alert("Deleted")
-            window.location.reload(false)
-        })
-    }
-    
   return (
     <div>
-      <br></br>
-            <Typography variant='h3'>Students</Typography>
+       <br></br>
+            <Typography variant='h3'>Teachers</Typography>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
                             <StyledTableCell>Name</StyledTableCell>
                             <StyledTableCell>Age</StyledTableCell>
-                            <StyledTableCell>Place</StyledTableCell>
-                            <StyledTableCell>Delete</StyledTableCell>
+                            <StyledTableCell>Class</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -53,18 +44,14 @@ const Read = () => {
                             return <TableRow>
                                 <TableCell>{value.id}</TableCell>
                                 <TableCell>{value.name}</TableCell>
-                                <TableCell>{value.grade}</TableCell>
-                                <TableCell>
-                                    <Button onClick={()=>deleteStudent(value.id)} >Delete</Button>
-                                </TableCell>
+                                <TableCell>{value.class}</TableCell>
                             </TableRow>
                         })}
                     </TableBody>
                 </Table>
             </TableContainer>
-    
     </div>
   )
 }
 
-export default Read
+export default Teachers
