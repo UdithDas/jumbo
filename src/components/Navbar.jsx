@@ -21,7 +21,7 @@ const Navbar = () => {
           <Link to='/' style={{color:'white', textDecoration:'none'}}>React 🧿</Link>
           </Typography>
           {/* <Button color="inherit" variant="outlined"><Link to='/students' style={{color:'white', textDecoration:'none'}}>Students</Link></Button> */}
-          <Button color="inherit" variant="outlined"><Link to='/teachers' style={{color:'white', textDecoration:'none'}}>Teachers</Link></Button>
+          {/* <Button color="inherit" variant="outlined"><Link to='/teachers' style={{color:'white', textDecoration:'none'}}>Teachers</Link></Button> */}
           <Button color="inherit" variant="outlined"><Link to='/students' style={{color:'white', textDecoration:'none'}}>View</Link></Button>    
           <Button color="inherit" variant="outlined"><Link to='/addstudents' style={{color:'white', textDecoration:'none'}}>ADD</Link></Button>          
       
